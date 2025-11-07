@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Classic Game Boy SVG</title>
+    <meta name="description" content="SVG illustration of a classic Nintendo Game Boy" />
+    <style>
+      :root {
+        --bg: #0f1220;
+        --surface: #ffffff;
+        --text: #0f1220;
+        --gameboy-body: #cfcfcf;
+        --gameboy-edge: #b9b9b9;
+        --screen-bezel: #4a3d61; /* DMG purple */
+        --screen: #8dbb5a; /* pea green */
+        --screen-glass: rgba(255,255,255,0.16);
+        --dpad: #2b2b2b;
+        --ab: #8c2e5f; /* magenta buttons */
+        --select-start: #808080;
+        --speaker: #6f6f6f;
+        --led: #e43f5a;
+        --shadow: rgba(0,0,0,0.25);
+      }
+      * { box-sizing: border-box; }
+      html, body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        display: grid;
+        place-items: center;
+        background: radial-gradient(1200px 800px at 70% 20%, #1b2140 0%, var(--bg) 55%, #0b0d18 100%);
+        color: var(--surface);
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      }
+      .wrap {
+        width: min(92vw, 900px);
+        margin: 4vh auto;
+        text-align: center;
+      }
+      h1 {
+        margin: 0 0 16px 0;
+        font-weight: 700;
+        letter-spacing: 0.3px;
+      }
+      p { opacity: 0.85; margin: 0 0 24px 0; }
+      .stage {
+        border-radius: 20px;
+        background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+        box-shadow:
+          0 30px 80px -20px rgba(0,0,0,0.45),
+          inset 0 0 0 1px rgba(255,255,255,0.06);
+        padding: min(4vw, 28px);
+      }
+      svg {
+        width: 100%;
+        height: auto;
+        display: block;
+        filter: drop-shadow(0 22px 32px var(--shadow));
+      }
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 1px, 1px);
+        white-space: nowrap;
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>Classic Game Boy (SVG)</h1>
+      <p>Scalable, accessible vector illustration. Resize the window to see it adapt.</p>
+      <div class="stage">
+        <svg viewBox="0 0 420 720" role="img" aria-labelledby="title desc" xmlns="http://www.w3.org/2000/svg">
+          <title id="title">Classic Game Boy</title>
+          <desc id="desc">A stylized depiction of a classic handheld gaming console with a green screen, D-pad, A and B buttons, Start and Select buttons, and speaker grilles.</desc>
+
+          <!-- Shadow under device -->
+          <ellipse cx="210" cy="700" rx="140" ry="18" fill="rgba(0,0,0,0.25)" />
+
+          <!-- Body with subtle highlight -->
+          <defs>
+            <linearGradient id="bodyShine" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0%" stop-color="#e5e5e5" />
+              <stop offset="35%" stop-color="var(--gameboy-body)" />
+              <stop offset="100%" stop-color="#c5c5c5" />
+            </linearGradient>
+            <linearGradient id="bezelSheen" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0%" stop-color="#5b4a78" />
+              <stop offset="100%" stop-color="#3b2e53" />
+            </linearGradient>
+            <linearGradient id="screenGlow" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0%" stop-color="#a6d874" />
+              <stop offset="100%" stop-color="#7fae4d" />
+            </linearGradient>
+            <linearGradient id="buttonGloss" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0%" stop-color="#b34c7d" />
+              <stop offset="100%" stop-color="#6d1f44" />
+            </linearGradient>
+          </defs>
+
+          <!-- Outer body -->
+          <rect x="35" y="20" width="350" height="640" rx="28" ry="28" fill="url(#bodyShine)" stroke="var(--gameboy-edge)" stroke-width="2" />
+
+          <!-- Top slanted detail ridge -->
+          <path d="M70 48 h280 a8 8 0 0 1 8 8 v10 H62 v-10 a8 8 0 0 1 8 -8 z" fill="rgba(255,255,255,0.25)" opacity=".35" />
+
+          <!-- Power LED -->
+          <circle cx="78" cy="100" r="6" fill="#3a0d16" stroke="#1d0a0f" stroke-width="1.5" />
+          <circle cx="78" cy="100" r="4" fill="var(--led)">
+            <animate attributeName="opacity" values="0.8;1;0.8" dur="2.8s" repeatCount="indefinite" />
+          </circle>
+
+          <!-- Screen bezel -->
+          <rect x="70" y="90" width="280" height="220" rx="14" fill="url(#bezelSheen)" />
+          <!-- Screen glass -->
+          <rect x="92" y="110" width="236" height="180" rx="8" fill="url(#screenGlow)" />
+          <!-- Glass reflection -->
+          <path d="M100 120 h150 a10 10 0 0 1 10 10 v6 L100 188 z" fill="var(--screen-glass)" />
+
+          <!-- Nintendo GAME BOY mark (simple bar accents) -->
+          <rect x="90" y="276" width="70" height="6" rx="3" fill="#bfb5cf" opacity="0.75" />
+          <rect x="170" y="276" width="36" height="6" rx="3" fill="#bfb5cf" opacity="0.55" />
+
+          <!-- D-Pad -->
+          <g transform="translate(110,390)">
+            <circle cx="0" cy="0" r="36" fill="#1d1d1d" opacity="0.001" />
+            <g fill="var(--dpad)" stroke="#111" stroke-width="1">
+              <rect x="-12" y="-36" width="24" height="72" rx="6" />
+              <rect x="-36" y="-12" width="72" height="24" rx="6" />
+            </g>
+            <circle cx="0" cy="0" r="6" fill="#151515" stroke="#000" stroke-width="1" />
+          </g>
+
+          <!-- A / B Buttons -->
+          <g transform="translate(285,420) rotate(-20)">
+            <circle cx="0" cy="0" r="18" fill="url(#buttonGloss)" stroke="#4c1634" stroke-width="2" />
+            <circle cx="-42" cy="-18" r="18" fill="url(#buttonGloss)" stroke="#4c1634" stroke-width="2" />
+          </g>
+
+          <!-- START / SELECT -->
+          <g transform="translate(210,500) rotate(-10)">
+            <rect x="-46" y="0" width="42" height="10" rx="5" fill="var(--select-start)" stroke="#5e5e5e" />
+            <rect x="6" y="0" width="42" height="10" rx="5" fill="var(--select-start)" stroke="#5e5e5e" />
+          </g>
+
+          <!-- Speaker Grille -->
+          <g transform="translate(300,560) rotate(25)" stroke="var(--speaker)" stroke-width="4" stroke-linecap="round">
+            <line x1="-48" y1="0" x2="48" y2="0" />
+            <line x1="-48" y1="14" x2="48" y2="14" />
+            <line x1="-48" y1="28" x2="48" y2="28" />
+            <line x1="-48" y1="42" x2="48" y2="42" />
+          </g>
+
+          <!-- Bottom curve lip -->
+          <path d="M60 612 q150 46 300 0" fill="none" stroke="rgba(0,0,0,0.18)" stroke-width="6" stroke-linecap="round" />
+
+          <!-- Subtle body outlines -->
+          <rect x="35" y="20" width="350" height="640" rx="28" fill="none" stroke="rgba(0,0,0,0.15)" stroke-width="1" />
+          <rect x="70" y="90" width="280" height="220" rx="14" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1" />
+          <rect x="92" y="110" width="236" height="180" rx="8" fill="none" stroke="rgba(0,0,0,0.2)" stroke-width="1" />
+        </svg>
+      </div>
+
+      <p class="sr-only">Tip: The SVG scales cleanly to any resolution.</p>
+    </div>
+  </body>
+</html>
